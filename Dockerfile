@@ -36,7 +36,6 @@ RUN npm install --only=production
 
 # Copiar el codigo compilado desde la etapa de desarrollo
 COPY --from=development /usr/src/app/dist ./dist
-COPY --from=development /usr/src/app/.env ./.env
 
 # Exponer el puerto
 EXPOSE 3000

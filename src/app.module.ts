@@ -15,7 +15,8 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.DATABASE_PASSWORD || 'postgres',
       database: process.env.DATABASE_NAME || 'nest_api',
       entities: [User],
-      synchronize: true, // No usar en producción
+      synchronize: true, // No usar en producción en proyectos reales
+      ssl: process.env.NODE_ENV === 'production' ? { rejectUnauthorized: false } : false,
     }),
     UsersModule,
   ],
